@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!--/resoces/css/ と /public/css/　のCSSファイルを読み込む-->
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
+
 </head>
 <body>
     <div id="app">
@@ -75,6 +79,15 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <!--VueのComponentを読み込むためにはappというidのdiv要素を配置する-->
+        <div id="app">
+            <!--「appというidのdiv要素」の中にcomponentの設置-->
+            <example-component />
+        </div>
+         <!--/resoces/js/ と /public/js/　のJSファイルを読み込む-->
+         <!--コンテナタグ（= <div id="app"> ）の後に記述する-->
+        <script src="{{ mix('js/app.js') }}"></script>
     </div>
 </body>
 </html>
